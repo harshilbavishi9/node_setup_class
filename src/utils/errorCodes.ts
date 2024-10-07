@@ -1,0 +1,12 @@
+enum ErrorCodes {
+  SUCCESS = 200,
+  CREATED = 201,
+  BAD_REQUEST = 400,
+  SERVER_ERROR = 500,
+  ALREADY_EXISTS = 409,
+  NOT_FOUND_ERROR = 404,
+  INVALID_CREDENTIALS = 401,
+  UNAUTHORIZED_ACCESS = 403,
+}
+
+export default ErrorCodes;

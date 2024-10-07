@@ -1,0 +1,26 @@
+enum ResMessages {
+  USER_NOT_FOUND = 'User not found.',
+  WRONG_PASSWORD = 'Wrong password.',
+  IMAGE_NOT_FOUND = 'Image not found.',
+  USER_CONNECTED = 'A user has connected.',
+  SERVER_RUNNING = 'Server running on port ',
+  USER_ALREADY_EXISTS = 'User already exists.',
+  FAILED_TO_SEND_EMAIL = 'Failed to send email.',
+  USER_DISCONNECTED = 'A user has disconnected.',
+  SOMETHING_WENT_WRONG = 'Something went wrong.',
+  USER_FETCH_SUCCESS = 'User fetched successfully.',
+  UNAUTHORIZED_ACCESS = 'Wrong authorization token.',
+  USER_UPDATE_SUCCESS = 'User updated successfully.',
+  USER_DELETE_SUCCESS = 'User deleted successfully.',
+  USERS_FETCH_SUCCESS = 'Users fetched successfully.',
+  USER_LOGIN_SUCCESS = 'User logged in successfully.',
+  IMAGE_UPLOAD_SUCCESS = 'Image uploaded successfully.',
+  INVALID_PAGE_OR_LIMIT = 'Invalid page or limit value.',
+  IMAGES_UPLOAD_SUCCESS = 'Images uploaded successfully.',
+  USER_REGISTER_SUCCESS = 'User registered successfully.',
+  AUTHORIZATION_TOKEN_MISSING = 'Authorization token is missing.',
+  GENERIC_ERROR = 'An unexpected error occurred. Please try again later.',
+  INVALID_FILE = 'Invalid file type. Only JPEG, PNG, and GIF are allowed.',
+}
+
+export default ResMessages;
