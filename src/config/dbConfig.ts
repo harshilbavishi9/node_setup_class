@@ -1,4 +1,4 @@
-import { appConfig } from './appConfig';
+import { appConfig } from './cred.json';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 class Database {
@@ -6,7 +6,7 @@ class Database {
 
   constructor() {
     const dbConfig: DataSourceOptions = {
-      type: appConfig.db.dbType,
+      type: 'postgres',
       host: appConfig.db.dbHost,
       port: appConfig.db.dbPort,
       username: appConfig.db.dbUser,

@@ -6,6 +6,7 @@
     "module": "commonjs",
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,

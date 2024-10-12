@@ -1,5 +1,5 @@
 import ResMessages from './resMessages';
-import { appConfig } from '../config/appConfig';
+import { appConfig } from '../config/cred.json';
 import nodemailer, { Transporter } from 'nodemailer';
 import smtpTransport from 'nodemailer-smtp-transport';
 

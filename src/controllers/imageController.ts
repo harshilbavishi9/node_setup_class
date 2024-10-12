@@ -1,6 +1,6 @@
 import ErrorCodes from '../utils/errorCodes';
 import ResMessages from '../utils/resMessages';
-import { appConfig } from '../config/appConfig';
+import { appConfig } from '../config/cred.json';
 import { responseHandler } from '../utils/errorHandler';
 import { Request, Response, NextFunction } from 'express';
 

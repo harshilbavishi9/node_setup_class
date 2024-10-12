@@ -1,4 +1,4 @@
-import { appConfig } from './appConfig';
+import { appConfig } from './cred.json';
 import { createClient, RedisClientType } from 'redis';
 
 class RedisClient {

@@ -6,7 +6,7 @@ import './config/redisConfig';
 import express from 'express';
 import routes from './routes';
 import { Server } from 'http';
-import { appConfig } from './config/appConfig';
+import { appConfig } from './config/cred.json';
 import ResMessages from './utils/resMessages';
 import errorMiddleware from './middlewares/errorMiddleware';
 import { Socket, Server as SocketIOServer } from 'socket.io';

@@ -3,7 +3,7 @@ import ResMessages from './resMessages';
 import { User } from '../entities/userEntity';
 import { database } from '../config/dbConfig';
 import jwt, { JwtPayload } from 'jsonwebtoken';
-import { appConfig } from '../config/appConfig';
+import { appConfig } from '../config/cred.json';
 import { responseHandler } from './errorHandler';
 import { NextFunction, Request, Response } from 'express';
 
