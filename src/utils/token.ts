@@ -68,7 +68,7 @@ class JWTService {
 
       next();
     } catch (error) {
-      Logger.error('Error while verifying token.');
+      Logger.error('Error while verifying token:-' + error);
       return responseHandler.handleError(res, ResMessages.UNAUTHORIZED_ACCESS, ErrorCodes.SERVER_ERROR);
     }
   }

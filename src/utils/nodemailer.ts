@@ -41,7 +41,7 @@ export const sendEmail = async (options: EmailOptions): Promise<void> => {
   try {
     await transporter.sendMail(mailOptions);
   } catch (error) {
-    Logger.error('Failed to send email.');
+    Logger.error('Failed to send email:-' + error);
     throw new Error(ResMessages.FAILED_TO_SEND_EMAIL);
   }
 };
