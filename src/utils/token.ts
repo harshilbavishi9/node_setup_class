@@ -1,14 +1,12 @@
+import Logger from './winston';
 import ErrorCodes from './errorCodes';
 import ResMessages from './resMessages';
 import { User } from '../entities/userEntity';
 import { database } from '../config/dbConfig';
 import jwt, { JwtPayload } from 'jsonwebtoken';
-import { appConfig } from '../config/cred.json';
 import { responseHandler } from './errorHandler';
 import { NextFunction, Request, Response } from 'express';
-
-const expiresIn: string = appConfig.jwtExpiresIn as string;
-const accessTokenSecret: string = appConfig.accessTokenSecret as string;
+import { jwtExpiresIn, accessTokenSecret } from '../../cred.json';
 
 declare module 'express' {
   interface Request {
@@ -21,7 +19,7 @@ declare module 'express' {
 class JWTService {
   public static encrypt(payload: object): Promise<string> {
     return new Promise((resolve, reject) => {
-      jwt.sign(payload, accessTokenSecret, { expiresIn: expiresIn }, (err: Error | null, token: string | undefined) => {
+      jwt.sign(payload, accessTokenSecret, { expiresIn: jwtExpiresIn }, (err: Error | null, token: string | undefined) => {
         if (err) {
           return reject(err);
         }
@@ -70,7 +68,7 @@ class JWTService {
 
       next();
     } catch (error) {
-      console.log(error);
+      Logger.error('Error while verifying token.');
       return responseHandler.handleError(res, ResMessages.UNAUTHORIZED_ACCESS, ErrorCodes.SERVER_ERROR);
     }
   }

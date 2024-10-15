@@ -1,4 +1,5 @@
-import { appConfig } from './cred.json';
+import Logger from '../utils/winston';
+import { redisUrl } from '../../cred.json';
 import { createClient, RedisClientType } from 'redis';
 
 class RedisClient {
@@ -6,7 +7,7 @@ class RedisClient {
 
   constructor() {
     this.client = createClient({
-      url: appConfig.redisUrl,
+      url: redisUrl,
     });
 
     this.initialize();
@@ -15,9 +16,10 @@ class RedisClient {
   private async initialize() {
     try {
       await this.client.connect();
-      console.log('Redis connected.');
+      Logger.info('Redis connected.');
     } catch (err) {
-      console.error('Redis connection error:', err);
+      Logger.error('Redis connection error.');
+
       throw err;
     }
   }

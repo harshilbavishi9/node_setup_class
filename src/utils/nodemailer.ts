@@ -1,5 +1,6 @@
+import Logger from './winston';
+import { smtp } from '../../cred.json';
 import ResMessages from './resMessages';
-import { appConfig } from '../config/cred.json';
 import nodemailer, { Transporter } from 'nodemailer';
 import smtpTransport from 'nodemailer-smtp-transport';
 
@@ -13,8 +14,8 @@ interface EmailOptions {
 const createTransporter = (): Transporter => {
   return nodemailer.createTransport(
     smtpTransport({
-      host: appConfig.smtp.smtpHost,
-      port: +appConfig.smtp.smtpPort,
+      host: smtp.smtpHost,
+      port: +smtp.smtpPort,
       secure: false,
       requireTLS: true,
       tls: {
@@ -22,8 +23,8 @@ const createTransporter = (): Transporter => {
       },
       auth: {
         type: 'OAuth2',
-        user: appConfig.smtp.smtpUser,
-        pass: appConfig.smtp.smtpPass,
+        user: smtp.smtpUser,
+        pass: smtp.smtpPass,
       },
     })
   );
@@ -33,14 +34,14 @@ export const sendEmail = async (options: EmailOptions): Promise<void> => {
   const transporter = createTransporter();
 
   const mailOptions = {
-    from: appConfig.smtp.smtpUser,
+    from: smtp.smtpUser,
     ...options,
   };
 
   try {
     await transporter.sendMail(mailOptions);
   } catch (error) {
-    console.log(error);
+    Logger.error('Failed to send email.');
     throw new Error(ResMessages.FAILED_TO_SEND_EMAIL);
   }
 };

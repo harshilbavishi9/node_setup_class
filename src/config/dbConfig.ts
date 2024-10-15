@@ -1,4 +1,5 @@
-import { appConfig } from './cred.json';
+import Logger from '../utils/winston';
+import { db } from '../../cred.json';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 class Database {
@@ -7,11 +8,11 @@ class Database {
   constructor() {
     const dbConfig: DataSourceOptions = {
       type: 'postgres',
-      host: appConfig.db.dbHost,
-      port: appConfig.db.dbPort,
-      username: appConfig.db.dbUser,
-      password: appConfig.db.dbPass,
-      database: appConfig.db.dbName,
+      host: db.dbHost,
+      port: db.dbPort,
+      username: db.dbUser,
+      password: db.dbPass,
+      database: db.dbName,
       synchronize: true,
       logging: false,
       entities: ['src/entities/**/*.ts'],
@@ -23,9 +24,9 @@ class Database {
   public async initialize() {
     try {
       await this.dataSource.initialize();
-      console.log('Database connected.');
+      Logger.info('Database connected.');
     } catch (error) {
-      console.error('Error connecting to the database', error);
+      Logger.error('Database connection error.');
       throw error;
     }
   }

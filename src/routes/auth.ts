@@ -1,6 +1,6 @@
 import express from 'express';
-import { userValidator } from '../../middlewares/validators';
-import { authController } from '../../controllers/authController';
+import { userValidator } from '../middlewares/validators';
+import { authController } from '../controllers/authController';
 
 const routes = express.Router();
 
