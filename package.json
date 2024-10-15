@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "scripts": {
-    "build": "npx tsc",
     "lint": "eslint .",
+    "build": "npx tsc",
     "prepare": "husky install",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
