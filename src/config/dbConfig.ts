@@ -1,5 +1,6 @@
 import Logger from '../utils/winston';
 import { db } from '../../cred.json';
+import ResMessages from '../utils/resMessages';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 class Database {
@@ -24,7 +25,7 @@ class Database {
   public async initialize() {
     try {
       await this.dataSource.initialize();
-      Logger.info('Database connected.');
+      Logger.info(ResMessages.POSTGRES_CONNECTED);
     } catch (error) {
       Logger.error('Database connection error.');
       throw error;

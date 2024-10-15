@@ -1,5 +1,6 @@
 import Logger from '../utils/winston';
 import { redisUrl } from '../../cred.json';
+import ResMessages from '../utils/resMessages';
 import { createClient, RedisClientType } from 'redis';
 
 class RedisClient {
@@ -16,7 +17,7 @@ class RedisClient {
   private async initialize() {
     try {
       await this.client.connect();
-      Logger.info('Redis connected.');
+      Logger.info(ResMessages.POSTGRES_CONNECTED);
     } catch (err) {
       Logger.error('Redis connection error.');
 

@@ -1,9 +1,11 @@
 enum ResMessages {
   USER_NOT_FOUND = 'User not found.',
   WRONG_PASSWORD = 'Wrong password.',
+  REDIS_CONNECTED = 'Redis connected.',
   IMAGE_NOT_FOUND = 'Image not found.',
   USER_CONNECTED = 'A user has connected.',
   SERVER_RUNNING = 'Server running on port ',
+  POSTGRES_CONNECTED = 'Postgres connected.',
   USER_ALREADY_EXISTS = 'User already exists.',
   FAILED_TO_SEND_EMAIL = 'Failed to send email.',
   USER_DISCONNECTED = 'A user has disconnected.',
